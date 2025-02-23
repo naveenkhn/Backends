@@ -14,6 +14,9 @@ db.init_app(app)
 
 # Create tables & insert data if not exists
 with app.app_context():
+	#	This command checks for the example.db file:
+	#	If it does not exist, SQLite creates it automatically.
+	#	If it already exists, it just ensures the tables are defined inside.
     db.create_all()
     if not Planet.query.first():
         planets = [

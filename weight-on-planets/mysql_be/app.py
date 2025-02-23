@@ -21,6 +21,9 @@ def get_db_connection():
 @app.route('/planets', methods=['GET'])
 def get_planets():
     conn = get_db_connection()
+    # This creates a cursor object that executes SQL queries and fetches results from the MySQL database.
+    # The dictionary=True parameter tells the cursor to return each row as a dictionary,
+    # where: Keys = column names and Values = the corresponding row values
     cursor = conn.cursor(dictionary=True)
     
     cursor.execute("SELECT * FROM planets")
